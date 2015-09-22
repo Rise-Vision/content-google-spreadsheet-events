@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>HTML Theme | Spreadsheet Events</title>
+  <!-- Schema.org markup for Google+ -->
+  <meta itemprop="name" content="Spreadsheet Events">
+  <meta itemprop="description" content="An HTML Theme displaying a series of events using the Rise Google Sheet Component.">
+  <meta itemprop="image" content="img/readmeScreenshot.png">
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@RiseVision">
+  <meta name="twitter:title" content="Spreadsheet Events">
+  <meta name="twitter:description" content="An HTML Theme displaying a series of events using the Rise Google Sheet Component.">
+  <meta name="twitter:image:src" content="img/readmeScreenshot.png">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="Spreadsheet Events" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="#" />
+  <meta property="og:image" content="img/readmeScreenshot.png" />
+  <meta property="og:description" content="An HTML Theme displaying a series of events using the Rise Google Sheet Component." />
+
+  <!--Fav Icon-->
+  <link rel="shortcut icon" href="img/favicon.ico" />
+
+  <!-- build:css css/style.css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endbuild -->
+
+  <!-- jQuery library -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <!-- rise google sheet dependencies -->
+  <script src="components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="components/rise-google-sheet/rise-google-sheet.html">
+
+  <!-- Lato font -->
+  <link href='https://fonts.googleapis.com/css?family=Lato:700,900,300' rel='stylesheet' type='text/css'>
+
+</head>
+<body unresolved>
+
+  <div class="wrapper">
+    <h1>Upcoming Events</h1>
+
+    <rise-google-sheet id="googleSheet"
+                       key="1ayh5CBwZn4q8-JkxtzuPdP589j7YvgTwFAA8mJHjxkU"
+                       tab-id="2"
+                       min-row="1"
+                       min-column="1"
+                       max-column="3"
+                       refresh="300">
+    </rise-google-sheet>
+
+    <div class="slide">
+      <div class="title"></div>
+      <div class="date"></div>
+      <div class="details"></div>
+    </div>
+
+  </div> <!-- .wrapper -->
+
+  <!-- build:js js/donor-wall.js -->
+  <script src="js/donor-wall.js"></script>
+  <script src="js/main.js"></script>
+  <!-- endbuild -->
+
+</body>
+</html>
