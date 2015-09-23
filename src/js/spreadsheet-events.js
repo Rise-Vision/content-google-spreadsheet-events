@@ -6,6 +6,7 @@ RiseVision.SpreadsheetEvents = (function() {
 
   var events = [];
 
+
   /*
    *  Private Methods
    */
@@ -40,7 +41,7 @@ RiseVision.SpreadsheetEvents = (function() {
     return cells[index] ? cells[index].gs$cell.$t : "";
   }
 
-  /* Return an individual donor as an object. */
+  /* Return an individual event as an object. */
   function getEvent(index, numCols, cells) {
     var individualEvent = {};
 
@@ -51,7 +52,7 @@ RiseVision.SpreadsheetEvents = (function() {
     return individualEvent;
   }
 
-  /* Add each donor to the donors array. */
+  /* Add each event to the events array. */
   function addEvents(cells) {
     var numCols = getNumColumns(cells),
       len = cells.length,
@@ -64,35 +65,27 @@ RiseVision.SpreadsheetEvents = (function() {
     }
   }
 
-  /* Display the donors. */
+  /* Display the events. */
   function displayEvents() {
     var template = null,
       slide = null,
       title = null,
       date = null,
       details = null,
-      numEvents = 8;
-
-    if ("content" in document.createElement("template")) {
-      slide = document.querySelectorAll(".slide");
-      title = document.querySelector(".title");
-      date = document.querySelector(".date");
-      details = document.querySelector(".details");
+      numEvents = 7;
 
       for (var i = 0; i < numEvents; i++) {
+        slide = document.getElementById("slide");
+        title = document.getElementsByClassName("title");
+        date = document.getElementsByClassName("date");
+        details = document.getElementsByClassName("details");
         title.textContent = events[i].title;
         date.textContent = events[i].date;
         details.textContent = events[i].details;
 
-        sections[i].innerHTML = "";
-        sections[i].appendChild(template.content.cloneNode(true));
-        sections[i].classList.add("fade-in");
+        slide.innerHTML = "<li class ='title'>" + title.textContent + "</li>" + "<li class ='date'>" + date.textContent + "</li>" + "<li class ='details'>" + details.textContent + "</li>"
       }
     }
-    else {
-      console.info("The HTML template element is not supported by your browser.");
-    }
-  }
 
   /*
    *  Public Methods
