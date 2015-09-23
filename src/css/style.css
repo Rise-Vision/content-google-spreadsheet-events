@@ -5,6 +5,40 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+@keyframes sunshine{
+  0%{transform: scale(1);}
+  60%{transform: scale(1);}
+  70%{transform: scale(0.99);}
+  80%{transform: scale(1.1);}
+  100%{transform: scale(1);}
+}
+
+@-webkit-keyframes sunshine{
+  0%{transform: scale(1);}
+  60%{transform: scale(1);}
+  70%{transform: scale(0.99);}
+  80%{transform: scale(1.1);}
+  100%{transform: scale(1);}
+}
+
+@keyframes light{
+  0%{fill:#34495D;}
+  15%{fill:#34495D;}
+  20%{fill:#F89406;}
+  80%{fill:#F89406;}
+  85%{fill:#34495D;}
+  100%{fill:#34495D;}
+}
+
+@-webkit-keyframes light{
+  0%{fill:#34495D;}
+  15%{fill:#34495D;}
+  20%{fill:#F89406;}
+  80%{fill:#F89406;}
+  85%{fill:#34495D;}
+  100%{fill:#34495D;}
+}
+
 /*=======
 main styling
 =======*/
@@ -15,7 +49,7 @@ body {
 }
 
 .wrapper {
-  background-color: cadetBlue;
+  background-color: #1E8BC3;
   height:100vh;
   width:100vw;
   text-align: center;
@@ -25,7 +59,92 @@ h1 {
   text-transform: uppercase;
   font-size: 10vw;
   margin: 0;
+  font-weight: 300;
+  background-color:#59ABE3;
 }
 
+#slide {
+  width:100vw;
+  margin: 0 auto;
+  padding: 0;
+  padding:5vh 10vw 5vh 10vw;
+  position: relative;
+  background-color: #3498DB;
+}
+
+.title {
+  font-weight: 900;
+  font-size: 6vw;
+  display: block;
+  margin-bottom: 1vh;
+}
+
+.date {
+  font-weight: 700;
+  font-size: 4vw;
+  display: block;
+  margin-bottom: 1vh;
+}
+
+.details {
+  font-size: 3.5vw;
+  display: block;
+  /*text-align: left;*/
+}
+
+.image-area {
+ /* width:5vw;
+  height:5vw;*/
+  position: absolute;
+  left:50%;
+  transform:translateX(-50%);
+  -webkit-transform:translateX(-50%);
+  bottom:0;
+  /*background-image: url("../img/cottage.svg");*/
+}
+
+/*img {
+   width:15vw;
+}*/
+
+.logo-area {
+  position: absolute;
+  right:2vw;
+  bottom:3vw;
+}
+
+.image {
+  width:15vw;
+  position: absolute;
+  left:50%;
+  transform:translateX(-50%);
+  -webkit-transform:translateX(-50%);
+  bottom:0vh;
+}
+
+.sun {
+  animation-delay:5s;
+  -webkit-animation-delay:5s;
+  animation: sunshine 1.3s ease-in 3s;
+  animation-fill-mode: forward;
+  -webkit-animation: sunshine 1.3s ease-in 3s;
+  -webkit-animation-fill-mode: forward;
+  transform-origin: center center;
+}
+
+.window {
+  animation-delay:5s;
+  -webkit-animation-delay:5s;
+  animation: light 4s ease-in 5s;
+  animation-fill-mode: forward;
+  -webkit-animation: light 4s ease-in 5s;
+  -webkit-animation-fill-mode: forward;
+}
+
+h3 {
+  opacity:0.3;
+  font-weight: 900;
+  font-size: 3vw;
+}
 
 
