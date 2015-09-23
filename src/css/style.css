@@ -5,37 +5,93 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+/*=======
+Keyframe Animation for Image
+=======*/
 @keyframes sunshine{
-  0%{transform: scale(1);}
-  60%{transform: scale(1);}
-  70%{transform: scale(0.99);}
-  80%{transform: scale(1.1);}
-  100%{transform: scale(1);}
+  0%{transform: scale(1);transform:translateY(30px);}
+  44%{transform:translateY(0px);}
+  46%{transform: scale(1);}
+  48%{transform: scale(0.99);}
+  50%{transform: scale(1.1);}
+  52%{transform: scale(1);transform:translateY(0px);}
+  100%{transform: scale(1);transform:translateY(30px);}
 }
 
 @-webkit-keyframes sunshine{
-  0%{transform: scale(1);}
-  60%{transform: scale(1);}
-  70%{transform: scale(0.99);}
-  80%{transform: scale(1.1);}
-  100%{transform: scale(1);}
+  0%{transform: scale(1);transform:translateY(30px);}
+  44%{transform:translateY(0px);}
+  46%{transform: scale(1);}
+  48%{transform: scale(0.99);}
+  50%{transform: scale(1.1);}
+  52%{transform: scale(1);transform:translateY(0px);}
+  100%{transform: scale(1);transform:translateY(30px);}
+}
+@keyframes clouds{
+  0%{opacity:0.8;transform:translateX(0);}
+  50%{transform:translateX(5px);}
+  80%{opacity:1;}
+  86%{opacity:1;}
+  100%{opacity:0.8;transform:translateX(0);}
+}
+
+@-webkit-keyframes clouds{
+  0%{opacity:0.8;transform:translateX(0);}
+  50%{transform:translateX(5px);}
+  80%{opacity:1;}
+  86%{opacity:1;}
+  100%{opacity:0.8;transform:translateX(0);}
+}
+
+@keyframes doorMove{
+   0%{width: 10px; transform: translateX(0px);}
+   35%{width: 10px; transform: translateX(0px);}
+  40%{width: 20px; transform: translateX(-10px);}
+  60%{width: 20px; transform: translateX(-10px);}
+  65%{width: 10px; transform: translateX(0px);}
+  100%{width: 10px; transform: translateX(0px);}
+}
+
+@-webkit-keyframes doorMove{
+   0%{width: 10px; transform: translateX(0px);}
+   35%{width: 10px; transform: translateX(0px);}
+  40%{width: 20px; transform: translateX(-10px);}
+  60%{width: 20px; transform: translateX(-10px);}
+  65%{width: 10px; transform: translateX(0px);}
+  100%{width: 10px; transform: translateX(0px);}
+}
+
+@keyframes doorHandleMove{
+   0%{transform: translateX(0px);}
+   35%{transform: translateX(0px);}
+  40%{transform: translateX(-10px);}
+  60%{transform: translateX(-10px);}
+  65%{transform: translateX(0px);}
+  100%{transform: translateX(0px);}
+}
+
+@-webkit-keyframes doorHandleMove{
+   0%{transform: translateX(0px);}
+   35%{transform: translateX(0px);}
+  40%{transform: translateX(-10px);}
+  60%{transform: translateX(-10px);}
+  65%{transform: translateX(0px);}
+  100%{transform: translateX(0px);}
 }
 
 @keyframes light{
   0%{fill:#34495D;}
-  15%{fill:#34495D;}
-  20%{fill:#F89406;}
-  80%{fill:#F89406;}
-  85%{fill:#34495D;}
+  80%{fill:#34495D;}
+  82%{fill:#F89406;}
+  98%{fill:#F89406;}
   100%{fill:#34495D;}
 }
 
 @-webkit-keyframes light{
   0%{fill:#34495D;}
-  15%{fill:#34495D;}
-  20%{fill:#F89406;}
-  80%{fill:#F89406;}
-  85%{fill:#34495D;}
+  80%{fill:#34495D;}
+  82%{fill:#F89406;}
+  98%{fill:#F89406;}
   100%{fill:#34495D;}
 }
 
@@ -46,30 +102,37 @@ body {
   font-family: "Lato", sans-serif;
   font-size: 6vw;
   color: #EFEFEF;
+  height:100vh;
+  width:100vw;
+  overflow: hidden;
 }
 
 .wrapper {
-  background-color: #1E8BC3;
   height:100vh;
   width:100vw;
   text-align: center;
+  overflow: hidden;
+  background: #91daff;
+  background: -webkit-linear-gradient(top, #91daff 0%, #409fdd 50%, #2095cf 100%);
+  background: linear-gradient(to bottom, #91daff 0%, #409fdd 50%, #2095cf 100%);
 }
 
 h1 {
   text-transform: uppercase;
   font-size: 10vw;
-  margin: 0;
+  margin: 2vh 0 0 0;
   font-weight: 300;
-  background-color:#59ABE3;
 }
 
-#slide {
+.slide {
   width:100vw;
   margin: 0 auto;
   padding: 0;
-  padding:5vh 10vw 5vh 10vw;
-  position: relative;
-  background-color: #3498DB;
+  padding:5vh 2vw 5vh 3.5vw;
+  position: absolute;
+  top:20vh;
+  right:100vw;
+  text-align: left;
 }
 
 .title {
@@ -89,56 +152,80 @@ h1 {
 .details {
   font-size: 3.5vw;
   display: block;
-  /*text-align: left;*/
+  padding-right: 25vw;
 }
-
-.image-area {
- /* width:5vw;
-  height:5vw;*/
-  position: absolute;
-  left:50%;
-  transform:translateX(-50%);
-  -webkit-transform:translateX(-50%);
-  bottom:0;
-  /*background-image: url("../img/cottage.svg");*/
-}
-
-/*img {
-   width:15vw;
-}*/
 
 .logo-area {
   position: absolute;
-  right:2vw;
-  bottom:3vw;
+  left:3vw;
+  bottom:2vw;
 }
 
 .image {
-  width:15vw;
+  width:25vw;
+  height:25vw;
   position: absolute;
-  left:50%;
-  transform:translateX(-50%);
-  -webkit-transform:translateX(-50%);
+  right:1vw;
   bottom:0vh;
+  z-index: 100;
 }
 
-.sun {
-  animation-delay:5s;
-  -webkit-animation-delay:5s;
-  animation: sunshine 1.3s ease-in 3s;
+#sun {
+  animation: sunshine 20s ease-in;
   animation-fill-mode: forward;
-  -webkit-animation: sunshine 1.3s ease-in 3s;
+  -webkit-animation: sunshine 20s ease-in;
   -webkit-animation-fill-mode: forward;
   transform-origin: center center;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
 }
 
-.window {
-  animation-delay:5s;
-  -webkit-animation-delay:5s;
-  animation: light 4s ease-in 5s;
+#cloud {
+  animation: clouds 20s ease-in;
   animation-fill-mode: forward;
-  -webkit-animation: light 4s ease-in 5s;
+  -webkit-animation: clouds 20s ease-in;
   -webkit-animation-fill-mode: forward;
+  transform-origin: center center;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+#door {
+  animation: doorMove 10s ease-in 3s;
+  animation-fill-mode: forward;
+  -webkit-animation: doorMove 10s ease-in 3s;
+  -webkit-animation-fill-mode: forward;
+  transform-origin: center center;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+#door-handle {
+  animation: doorHandleMove 10s ease-in 3s;
+  animation-fill-mode: forward;
+  -webkit-animation: doorHandleMove 10s ease-in 3s;
+  -webkit-animation-fill-mode: forward;
+  transform-origin: center center;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+#window-1 {
+  animation: light 20s ease-in 5s;
+  animation-fill-mode: forward;
+  -webkit-animation: light 20s ease-in 5s;
+  -webkit-animation-fill-mode: forward;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+#window-2 {
+  animation: light 10s ease-in 14s;
+  animation-fill-mode: forward;
+  -webkit-animation: light 10s ease-in 14s;
+  -webkit-animation-fill-mode: forward;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
 }
 
 h3 {

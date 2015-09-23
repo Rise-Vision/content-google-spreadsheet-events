@@ -26,7 +26,7 @@
     "gulp-rename": "~1.2.0",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "~1.2.0",
-    "gulp-usemin": "~0.3.9",
+    "gulp-usemin": "0.3.11",
     "jshint-stylish": "~1.0.2",
     "run-sequence": "~1.1.0"
   }
