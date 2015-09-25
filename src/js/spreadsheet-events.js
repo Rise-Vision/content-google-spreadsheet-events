@@ -5,7 +5,9 @@ RiseVision.SpreadsheetEvents = (function() {
   "use strict";
 
   var events = [];
-
+  var counter = 0;
+  var slideMovement = false;
+  var slideTimer;
 
   /*
    *  Private Methods
@@ -54,6 +56,8 @@ RiseVision.SpreadsheetEvents = (function() {
 
   /* Add each event to the events array. */
   function addEvents(cells) {
+    counter = 0;
+    events = [];
     var numCols = getNumColumns(cells),
       len = cells.length,
       individualEvent;
@@ -67,15 +71,22 @@ RiseVision.SpreadsheetEvents = (function() {
 
   /* Display the events. */
   function displayEvents() {
-    var template = null,
-      slide = null,
+
+
+
+    var mainSlide = null,
       title = null,
       date = null,
       details = null,
-      numEvents = 7;
+      eventSlides = null,
+      numEvents = events.length;
+
+      $("#slideArea").empty();
 
       for (var i = 0; i < numEvents; i++) {
-        slide = document.getElementById("slide");
+
+        mainSlide = document.createElement("ul");
+        mainSlide.className = "slide";
         title = document.getElementsByClassName("title");
         date = document.getElementsByClassName("date");
         details = document.getElementsByClassName("details");
@@ -83,21 +94,35 @@ RiseVision.SpreadsheetEvents = (function() {
         date.textContent = events[i].date;
         details.textContent = events[i].details;
 
-        slide.innerHTML = "<li class ='title'>" + title.textContent + "</li>" + "<li class ='date'>" + date.textContent + "</li>" + "<li class ='details'>" + details.textContent + "</li>"
+        mainSlide.innerHTML = "<li class ='title'>" + title.textContent + "</li>" + "<li class ='date'>" + date.textContent + "</li>" + "<li class ='details'>" + details.textContent + "</li>";
+
+        $("#slideArea").append(mainSlide);
       }
+
+      eventSlides = document.getElementsByClassName("slide");
+
+      eventSlides[0].style.right = "0vw";
+
+        function changeSlide() {
+          slideMovement = true;
+          $(eventSlides[counter]).animate({ "right": "0" }, {duration: 1000, easing: "easeOutBack"}).delay(5000).animate({ "right": "100vw" }, 1000);
+          counter++;
+          if (counter >= numEvents) {
+            counter = 0;
+          }
+        }
+        slideTimer = setInterval(changeSlide, 7000);
     }
 
   /*
    *  Public Methods
    */
-  function init(e) {
+  function init() {
     var googleSheet = document.getElementById("googleSheet");
-
     googleSheet.addEventListener("rise-google-sheet-response", function(e) {
       addEvents(e.detail.cells);
       displayEvents();
     });
-
     googleSheet.go();
   }
 

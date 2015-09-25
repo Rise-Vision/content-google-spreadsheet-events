@@ -13,6 +13,7 @@
   ],
   "dependencies": {
     "rise-google-sheet": "https://github.com/Rise-Vision/rise-google-sheet.git",
-    "webcomponentsjs": "~0.7.12"
+    "webcomponentsjs": "~0.7.12",
+    "svg-injector": "1.1.3"
   }
 }

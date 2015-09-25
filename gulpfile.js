@@ -36,14 +36,12 @@
 
   gulp.task("components", function() {
     return gulp.src([
-      "src/components/google-apis/*.html",
-      "src/components/iron-jsonp-library/iron-jsonp-library.html",
-      "src/components/moment/moment.js",
-      "src/components/moment-timezone/builds/*.js",
+       "src/components/webcomponentsjs/webcomponents-lite.min.js",
       "src/components/polymer/*.*{html,js}",
-      "src/components/rise-google-calendar/rise-google-calendar.html",
-      "src/components/underscore/*.js",
-      "src/components/webcomponentsjs/webcomponents*.js",
+      "src/components/promise-polyfill/*.*{html,js}",
+      "src/components/iron-ajax/iron-ajax.html",
+      "src/components/iron-ajax/iron-request.html",
+      "src/components/rise-google-sheet/rise-google-sheet.html"
     ], {base: "./src/"})
       .pipe(gulp.dest("dist/"));
   });
