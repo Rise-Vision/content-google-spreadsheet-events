@@ -46,7 +46,7 @@ Open index.html and locate the following code. This theme currently uses an svg-
 ```
 
 ####Changing The Text Content
-The text content is displayed through the use of the rise-google-sheet web component. This is an example of the spreadsheet layout:
+The text content is displayed through the use of the rise-google-sheet web component. This is an example of the spreadsheet layout and the full spreadsheet can be viewed [here](https://docs.google.com/a/cameroncodes.com/spreadsheets/d/1ayh5CBwZn4q8-JkxtzuPdP589j7YvgTwFAA8mJHjxkU/edit?usp=drive_web):
 ![diagram showing spreadsheet layout](https://cloud.githubusercontent.com/assets/8008948/10105346/3413d94a-637c-11e5-8aff-e8e70dc11581.png)
 
 You can use your own public spreadsheet by creating one on the Google Sheet website and then locating the following code in the index.html file:
